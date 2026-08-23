@@ -43,7 +43,7 @@ export const projects: Project[] = [
     description:
       "Natural language to SQL platform with real-time query execution, result sharing, and analytics dashboards for data teams.",
     tech: ["FastAPI", "Next.js", "PostgreSQL", "Redis", "Dramatiq", "Docker"],
-    githubUrl: "https://github.com/pavanmannem732/dialect",
+    githubUrl: "https://github.com/pavanmannem732/Dialect",
     architecture:
       "Next.js App Router → FastAPI API → SQLAlchemy + Alembic → PostgreSQL | Redis cache → Dramatiq workers → Prometheus/Grafana",
   },
