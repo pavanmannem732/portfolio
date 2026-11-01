@@ -45,9 +45,11 @@ __pycache__/
 
 # vercel
 .vercel
+powershell.cmd
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
 .vercel
+powershell.cmd

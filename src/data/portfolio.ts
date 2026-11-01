@@ -44,6 +44,7 @@ export const projects: Project[] = [
     description:
       "Natural language to SQL platform with real-time query execution, result sharing, and analytics dashboards for data teams.",
     tech: ["FastAPI", "Next.js", "PostgreSQL", "Redis", "Dramatiq", "Docker"],
+    liveUrl: "https://dialect-frontend.vercel.app",
     githubUrl: "https://github.com/pavanmannem732/Dialect",
     architecture:
       "Next.js App Router → FastAPI API → SQLAlchemy + Alembic → PostgreSQL | Redis cache → Dramatiq workers → Prometheus/Grafana",
@@ -53,6 +54,7 @@ export const projects: Project[] = [
     description:
       "Practice management intelligence layer for Indian CA firms — client portals, GST compliance calendars, document workflows, and AI-assisted notice responses.",
     tech: ["FastAPI", "Next.js", "PostgreSQL", "Celery", "Terraform"],
+    liveUrl: "https://ca-os-frontend-tau.vercel.app",
     githubUrl: "https://github.com/pavanmannem732/ca-os",
     architecture:
       "Next.js dashboard + client portal → FastAPI routers → Services/agents layer → PostgreSQL + Redis → Celery tasks → S3 document storage",
@@ -62,6 +64,7 @@ export const projects: Project[] = [
     description:
       "Django web portal for college result management — bulk Excel import, hall-ticket lookup, semester-wise SGPA/CGPA tracking, and captcha-protected uploads.",
     tech: ["Django", "PostgreSQL", "Pandas", "OpenPyXL", "Bootstrap"],
+    liveUrl: "https://fillthegap-lime.vercel.app",
     githubUrl: "https://github.com/pavanmannem732/fillthegap",
     architecture:
       "Django views/templates → Core models (College, Student, SemesterResult) → Pandas Excel import pipeline → PostgreSQL",

@@ -64,14 +64,18 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         ))}
       </div>
 
-      <div className="flex flex-wrap gap-4 font-mono text-xs">
+      <div className="flex flex-wrap items-center gap-4 font-mono text-xs">
         {project.liveUrl && (
           <a
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="inline-flex items-center gap-2 text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
             live demo →
           </a>
         )}
