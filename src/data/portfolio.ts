@@ -8,8 +8,8 @@ export const siteConfig = {
   github: "https://github.com/pavanmannem732",
   linkedin: "https://www.linkedin.com/in/pavan-mannem-090175247",
   resumeUrl: "/resume.pdf",
-  siteUrl: "https://pavanmannem.dev", // TODO: Update after Vercel deploy
-  apiUrl: process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000",
+  siteUrl: "https://portfolio-pavanmannem-projects.vercel.app",
+  apiUrl: process.env.NEXT_PUBLIC_API_URL || "https://portfolio-api-production-235b.up.railway.app",
 };
 
 export const skills = {
@@ -34,6 +34,7 @@ export const projects: Project[] = [
     description:
       "Config-driven festival greeting platform with dynamic template engine — users create and share personalized wishes with animated layouts, countdown reveals, and AI-assisted content.",
     tech: ["FastAPI", "React", "PostgreSQL", "SQLAlchemy", "Docker"],
+    liveUrl: "https://celebrations-frontend-ten.vercel.app",
     githubUrl: "https://github.com/pavanmannem732/celebrations",
     architecture:
       "React SPA → FastAPI /api/v1 → Repository layer → PostgreSQL | Config-driven TemplateRenderer → S3/static media storage",

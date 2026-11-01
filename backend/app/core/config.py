@@ -12,12 +12,14 @@ class Settings(BaseSettings):
     api_host: str = "0.0.0.0"
     api_port: int = 8000
 
-    database_url: str
+    database_url: str = "sqlite:///./portfolio.db"
 
-    cors_origins: str = "http://localhost:3000"
+    cors_origins: str = "http://localhost:3000,https://portfolio-pavanmannem-projects.vercel.app"
+
+    resend_api_key: str = ""
 
     smtp_host: str = "smtp.gmail.com"
-    smtp_port: int = 587
+    smtp_port: int = 465
     smtp_user: str = ""
     smtp_password: str = ""
     smtp_from: str = ""
@@ -33,7 +35,7 @@ class Settings(BaseSettings):
 
     @property
     def smtp_configured(self) -> bool:
-        return bool(self.smtp_user and self.smtp_password)
+        return bool(self.resend_api_key or (self.smtp_user and self.smtp_password))
 
 
 settings = Settings()

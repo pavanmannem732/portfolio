@@ -1,3 +1,4 @@
+from fastapi import BackgroundTasks
 from sqlalchemy.orm import Session
 
 from app.repository.contact import ContactRepository
@@ -10,19 +11,16 @@ class ContactService:
         self.repository = ContactRepository(db)
         self.email_service = EmailService()
 
-    def submit(self, payload: ContactCreate) -> ContactSubmitResponse:
+    def submit(
+        self, payload: ContactCreate, background_tasks: BackgroundTasks
+    ) -> ContactSubmitResponse:
         record = self.repository.create(payload)
-        email_sent = self.email_service.send_contact_notification(record)
-
-        if email_sent:
-            return ContactSubmitResponse(
-                success=True,
-                message="Message sent successfully. I'll get back to you soon.",
-                id=record.id,
-            )
+        background_tasks.add_task(
+            self.email_service.send_contact_notification, record
+        )
 
         return ContactSubmitResponse(
             success=True,
-            message="Message saved. Email notification pending SMTP setup.",
+            message="Message sent successfully! I'll get back to you soon.",
             id=record.id,
         )

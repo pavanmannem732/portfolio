@@ -33,7 +33,7 @@ export function Experience() {
         ease: "none",
         scrollTrigger: {
           trigger: container,
-          start: "top 70%",
+          start: "top 75%",
           end: "bottom 60%",
           scrub: 0.6,
         },
@@ -53,57 +53,54 @@ export function Experience() {
         />
       </ScrollReveal>
 
-      <div ref={timelineRef} className="relative mx-auto max-w-3xl">
+      <div ref={timelineRef} className="relative mx-auto max-w-3xl pl-6 sm:pl-8">
+        {/* Vertical Timeline Line */}
         <div
           ref={lineRef}
-          className="absolute top-0 left-[7px] h-full w-px bg-accent/40 md:left-1/2 md:-translate-x-px"
+          className="absolute top-2 left-2 sm:left-3 bottom-2 w-0.5 bg-accent/40 origin-top"
           aria-hidden
         />
 
-        <ol className="space-y-12">
+        <ol className="space-y-8 sm:space-y-10">
           {experience.map((item, index) => (
-            <ScrollReveal key={item.company} delay={index * 0.05}>
-              <li className="relative pl-8 md:grid md:grid-cols-2 md:gap-8 md:pl-0">
+            <ScrollReveal key={item.company} delay={index * 0.08}>
+              <li className="relative group">
+                {/* Timeline Dot Node */}
                 <div
-                  className={`absolute top-1 left-0 h-3.5 w-3.5 rounded-full border-2 border-accent bg-background md:left-1/2 md:-translate-x-1/2 ${
-                    index % 2 === 0 ? "md:col-start-1" : "md:col-start-2"
-                  }`}
+                  className="absolute -left-6 sm:-left-8 top-1.5 h-3.5 w-3.5 -translate-x-[3px] rounded-full border-2 border-accent bg-background group-hover:scale-125 group-hover:bg-accent transition-all duration-300 shadow-[0_0_8px_rgba(34,197,94,0.4)]"
                   aria-hidden
                 />
 
-                <div
-                  className={`md:col-start-1 ${
-                    index % 2 === 0
-                      ? "md:col-start-1 md:text-right md:pr-10"
-                      : "md:col-start-2 md:pl-10"
-                  }`}
-                >
-                  <p className="font-mono text-xs tracking-widest text-accent uppercase">
-                    {item.period}
-                  </p>
-                  <h3 className="mt-1 text-lg font-semibold text-foreground">
-                    {item.role}
-                  </h3>
-                  <p className="font-mono text-sm text-muted">{item.company}</p>
-                </div>
+                {/* Content Card */}
+                <div className="rounded-xl border border-border/60 bg-card/40 p-5 sm:p-6 backdrop-blur-sm transition-all duration-300 hover:border-accent/40 hover:bg-card/70 hover:shadow-lg hover:shadow-accent/5">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
+                        {item.role}
+                      </h3>
+                      <p className="font-mono text-sm text-muted mt-0.5">
+                        {item.company}
+                      </p>
+                    </div>
+                    <span className="inline-block font-mono text-xs font-medium tracking-wide text-accent bg-accent/10 border border-accent/20 px-2.5 py-1 rounded-md">
+                      {item.period}
+                    </span>
+                  </div>
 
-                <div
-                  className={`mt-4 md:mt-0 ${
-                    index % 2 === 0
-                      ? "md:col-start-2 md:pl-10"
-                      : "md:col-start-1 md:pr-10 md:text-right"
-                  }`}
-                >
-                  <p className="text-sm leading-relaxed text-muted">
+                  <p className="mt-3 text-sm leading-relaxed text-muted/90">
                     {item.description}
                   </p>
-                  <ul className="mt-3 space-y-1.5 text-left">
+
+                  <ul className="mt-4 space-y-2">
                     {item.highlights.map((highlight) => (
                       <li
                         key={highlight}
-                        className="text-sm text-muted before:mr-2 before:font-mono before:text-accent before:content-['→']"
+                        className="text-sm text-muted/90 flex items-start gap-2.5"
                       >
-                        {highlight}
+                        <span className="font-mono text-accent select-none shrink-0 mt-0.5">
+                          →
+                        </span>
+                        <span>{highlight}</span>
                       </li>
                     ))}
                   </ul>
