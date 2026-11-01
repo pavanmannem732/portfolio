@@ -4,6 +4,9 @@ services:
     runtime: python
     rootDir: backend
     plan: free
+    region: oregon
+    branch: master
+    autoDeploy: true
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
@@ -11,20 +14,20 @@ services:
       - key: ENV
         value: production
       - key: PYTHON_VERSION
-        value: "3.12.0"
-      - key: DATABASE_URL
-        sync: false
+        value: "3.12.8"
       - key: CORS_ORIGINS
-        sync: false
+        value: http://localhost:3000,https://portfolio-tan-eight-12.vercel.app,https://portfolio-pavanmannem-projects.vercel.app,https://portfolio-pavanmannem-projects-lhedmfq99.vercel.app
       - key: SMTP_HOST
         value: smtp.gmail.com
       - key: SMTP_PORT
         value: "587"
       - key: SMTP_USER
+        value: pavanmannem42@gmail.com
+      - key: SMTP_FROM
+        value: pavanmannem42@gmail.com
+      - key: CONTACT_TO_EMAIL
+        value: pavanmannem42@gmail.com
+      - key: DATABASE_URL
         sync: false
       - key: SMTP_PASSWORD
-        sync: false
-      - key: SMTP_FROM
-        sync: false
-      - key: CONTACT_TO_EMAIL
         sync: false

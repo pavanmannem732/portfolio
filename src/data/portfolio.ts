@@ -8,8 +8,8 @@ export const siteConfig = {
   github: "https://github.com/pavanmannem732",
   linkedin: "https://www.linkedin.com/in/pavan-mannem-090175247",
   resumeUrl: "/resume.pdf",
-  siteUrl: "https://portfolio-pavanmannem-projects.vercel.app",
-  apiUrl: process.env.NEXT_PUBLIC_API_URL || "https://portfolio-api-production-235b.up.railway.app",
+  siteUrl: "https://portfolio-tan-eight-12.vercel.app",
+  apiUrl: process.env.NEXT_PUBLIC_API_URL || "https://pavan-portfolio-api-lr4f.onrender.com",
 };
 
 export const skills = {
